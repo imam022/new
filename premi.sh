@@ -451,6 +451,7 @@ bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release
     curl -s ipinfo.io/city >>/etc/xray/city
     curl -s ipinfo.io/org | cut -d " " -f 2-10 >>/etc/xray/isp
     print_install "Memasang Konfigurasi Packet"
+    apt install haproxy -y
     wget -O /etc/haproxy/haproxy.cfg "${REPO}limit/haproxy.cfg" >/dev/null 2>&1
     wget -O /etc/nginx/conf.d/xray.conf "${REPO}limit/xray.conf" >/dev/null 2>&1
     sed -i "s/xxx/${domain}/g" /etc/haproxy/haproxy.cfg
